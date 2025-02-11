@@ -3,8 +3,9 @@ name: Go Lint
 on:
   push:
     branches:
-      - "**"  # Runs on all branches
-  pull_request:  # Runs on all pull requests
+      - "**"  # Runs on all branches EXCEPT when part of a PR
+  pull_request:  # Runs only on PR updates
+    types: [opened, synchronize, reopened]  # Runs only on PR updates
 
 permissions:
   contents: read
